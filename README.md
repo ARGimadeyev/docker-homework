@@ -38,6 +38,19 @@
 
 [ Как проверить готовность сервиса](https://docs.docker.com/compose/how-tos/startup-order/)
 
+## Запуск
+
+настроки в `.env`. пример: `.env.example`.
+`APP_PORT` задаёт порт на компе (8080), `GREETING` - приветствие.
+
+| Вариант | Запуск | Остановка |
+|---|---|---|
+| SQLite | `sudo docker compose -f compose.sqlite.yaml up -d --build` | `sudo docker compose -f compose.sqlite.yaml down` |
+| Redis | `sudo docker compose up -d --build --wait` | `sudo docker compose down` |
+
+оба варианта на одном порту. 
+проверка после запуска: `curl http://127.0.0.1:8080/`.
+
 ## 10 баллов — проверка восстановления
 
 К уровню 8 нужно добавить ограничения процесса и автоматическую проверку восстановления.
